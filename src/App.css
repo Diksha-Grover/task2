@@ -3,41 +3,14 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
 }
-/* 
+
 .card {
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 16px;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  max-width: 100%;
-  height: auto;
-} */
-
-/* .card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  padding: 16px;
-  text-align: center;
-  transition: transform 0.3s ease, 
-} */
-
- 
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 16px;
-  text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInCard 0.5s ease;
 }
 
 .card img {
@@ -53,8 +26,8 @@
 }
 
 .card button {
-  background-color: #007bff; 
-  color: white; 
+  background-color: #007bff;
+  color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -65,14 +38,31 @@
 }
 
 .card button:hover {
-  background-color: #0056b3; 
-  transform: scale(1.05); 
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .card button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 .modal-overlay {
   position: fixed;
@@ -89,20 +79,26 @@
 .modal {
   background-color: white;
   padding: 20px;
-  max-width: 90%; 
-  max-height: 90%; 
-  width: 100%;
+  max-width: 600px; /* Reduced the maximum width */
+  width: 90%; /* Make it responsive */
   border-radius: 8px;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
   animation: fadeIn 0.3s ease;
 }
 
 .modal img {
   width: 100%;
-  max-width: 100%; 
-  max-height: 80vh; 
-  object-fit: contain; 
+  max-width: 100%;
+  height: auto; /* Make sure the image scales properly */
+  max-height: 50vh; /* Reduce the height to make the modal smaller */
+  object-fit: contain;
+}
+
+.modal h2 {
+  font-size: 20px; /* Reduce the size of the heading */
+  margin-top: 12px;
+  color: #333;
 }
 
 .close-button {
@@ -125,4 +121,5 @@
     transform: scale(1);
   }
 }
+
 

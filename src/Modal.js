@@ -18,7 +18,6 @@ const Modal = ({ card, onClose }) => {
         </button>
         <img src={card.url} alt={card.title} />
         <h2>{card.title}</h2>
-        {/* <p>Photo ID: {card.id}</p> */}
       </div>
     </div>
   );
